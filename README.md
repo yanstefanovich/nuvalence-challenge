@@ -1,10 +1,12 @@
+# Nuvalance Challenge
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn start`/`npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -12,57 +14,30 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `yarn test`/`npm start`
 
 Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+There are currently no tests written for this project.
 
-### `yarn build`
+### `yarn build`/`npm start`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+The build is minified and the filenames include the hashes.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Summary
 
-### `yarn eject`
+### Aproach
+I took the approach of working around the API. The first thing I built was the data query. I originally was going to requery for more details on the details page however I realized the API does not allow for direct queries by id. I therefore changed my strategy by storing all the items in global state and pulling the data from the global state object for displaying the details. The styling is very minimal I went for function over looks.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Features
+I only implemented the bare minimum &mdash; basic routing and pagination. I used `@reach/router` for the routing &mdash; I enjoy its style of declaring routes over `react-router`. I used `react-query` and `axios` for network requests. I used React Hooks to do most of the heavy lifting. For state, I use `recoil`, it works very react-like and seperates state into bite sized chunks allowing easier access and operations. For styling I use `styled-components` &mdash; it is like writing CSS in JS.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### What else would you have liked to complete and how long it would have taken you?
+First off, tests. What you see here took about 2 hours to complete. Adding tests would have been another hour of work. It would ensure stability and reliability but when tasked with getting a project done in a short time span I had to opt to finishing it without test cases.
+Given more time, I would also style the application above the bare minimum &mdash; add animations and transitions following a style guide. And add more SEO.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### What else would you have done to make the project more robust?
+I would improve the querying logic. The way the query works now, is it will requery/repoll data every few seconds but it will only do it for the latest page. Ideally, I requery/refetch every page over time to update the data displayed.
